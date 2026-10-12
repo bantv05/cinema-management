@@ -19,7 +19,8 @@ public class Movie extends BaseEntity {
     @Column(nullable = false, length = 255)
     private String title;
 
-    @Lob
+    // Dung TEXT thay vi @Lob: tren PostgreSQL @Lob String bi map thanh oid (large object)
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "duration_minutes", nullable = false)
@@ -28,7 +29,7 @@ public class Movie extends BaseEntity {
     @Column(name = "release_date", nullable = false)
     private LocalDate releaseDate;
 
-    /** Ngay ngung chieu - dung de loc phim con hop le khi chay thuat toan xep lich (GD6). */
+    /** Ngay ngung chieu - dung de loc phim. */
     @Column(name = "end_date")
     private LocalDate endDate;
 
@@ -40,15 +41,14 @@ public class Movie extends BaseEntity {
 
     private String director;
 
-    @Lob
-    @Column(name = "cast_list")
+    @Column(name = "cast_list", columnDefinition = "TEXT")
     private String castList;
 
     private String language;
 
     private String subtitle;
 
-    /** P, C13, C16, C18... */
+    /** P, t13, t16, t18... */
     @Column(name = "age_rating", length = 10)
     private String ageRating;
 

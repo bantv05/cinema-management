@@ -29,6 +29,6 @@ public class Review extends BaseEntity {
     @Column(nullable = false)
     private Integer rating;
 
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String comment;
 }
